@@ -72,12 +72,16 @@ public class Order {
 			driver.findElement(By.name("ctl00$MainContent$fmwOrder$TextBox6")).sendKeys(cardNumber);
 		}
 
-		int m = r.nextInt(12);  // get month for expiration date
+		int m = r.nextInt(12)+1;  // get month for expiration date
 		String month = "" + m;
 		if (m < 10) {
 			month = 0 + month;
 		}
-		int year = r.nextInt(100);// get year for expiration date
+		int y = r.nextInt(100);// get year for expiration date
+		String year = "" + y;
+		if (y < 10) {
+			year = 0 + year;
+		}
 		
 		driver.findElement(By.xpath("//*[@id=\"ctl00_MainContent_fmwOrder_TextBox1\"]")).sendKeys(month + "/" + year);// input expiration date
 
